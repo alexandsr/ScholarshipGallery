@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Search from './source/search.jsx';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
+import './index.css';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -17,7 +18,7 @@ export default function App() {
   const backgroundColor = isDarkMode ? '#081013' : '#DBE5E9';
   const textColor = isDarkMode ? '#DBE5E9' : '#081013';
   const [loaded] = useFonts({
-    Ogreave: require('./assets/fonts/OgreaveBold-d5gl.ttf'),
+    Ogreave: require('./assets/fonts/orgreave.ttf'),
   });
 
   return (
@@ -30,10 +31,11 @@ export default function App() {
         source={require('./assets/cap_dark.png')}
         style={styles.image}
       />
-              <Text style={styles.header}>scholarship{"\n"}gallery</Text>  
+      <Text style={styles.header}>scholarship{"\n"}gallery</Text>  
 
       <Button 
-        title="Go"  
+        style={styles.firstButton}
+        title="GO"  
         onPress={() => console.log('button presed')}
       />
      <NavigationContainer>
@@ -59,6 +61,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 80,
     fontFamily: 'Ogreave',
+    fontWeight: 'bold',
+    color: '#DBE5E9'
   },
   subtitle: {
     textAlign: 'center', 
@@ -71,6 +75,15 @@ const styles = StyleSheet.create({
     top: 50,
     position: 'absolute',
 
+  },
+  firstButton: {
+    backgroundColor: '#081013',
+    color: '#081013',
+    position: 'absolute',
+    top: 100,
+    width: 50,
+    fontFamily: 'Ogreave',
+    fontWeight: 'bold',
   }
   
 });
